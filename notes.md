@@ -46,6 +46,31 @@ Create a second website for authoring and editing your posts. You can set this u
 - The ability to manage comments (i.e. delete or edit them).
 
 # NOTES
+```
 
-- Upload images with posts.
-- Featured post for front page.
+const UserSchema = new mongoose.Schema({
+        username: { type: String, required: true },
+        password: { type: String, required: true },
+        admin: { type: Boolean, required: true },
+});
+
+const PostSchema = new mongoose.Schema({
+        author: [{ type: Schema.Types.ObjectId, ref: 'User', required: true }],
+        title: { type: String, required: true },
+        body: { type: String, required: true },
+        description: { type: String, required: false },
+        image: { type: String, required: false },
+        featured: { type: Boolean, required: false },
+        comments: [{type: Schema.Types.ObjectId, ref: 'Comment'}]
+		timestamp: { type: String, required: false },
+});
+
+const CommentSchema = new mongoose.Schema({
+        author: [{type: Schema.Types.ObjectId, ref: 'User', required: true}],
+        post: [{type: Schema.Types.ObjectId, ref: 'Post', required: true}],
+        text: { type: String, required: true },
+        timestamp: {type: String, required: false}
+});
+
+
+```

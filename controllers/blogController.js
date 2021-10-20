@@ -1,10 +1,11 @@
-const Item = require('../models/blogPosts');
-const Category = require('../models/category');
+const User = require('../models/user');
+const Post = require('../models/post');
+const Comment = require('../models/comment');
+
+
 
 const index = (req, res) => {
-	
-			res.render('index', { title: 'Home Page' });
-		
+	res.render('index', { title: 'Home Page' });
 };
 
 
