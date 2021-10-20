@@ -1,10 +1,12 @@
 // File to run in order to get data into database.Run this from node REPL
 
 const mongoose = require('mongoose');
+const utilities =  require('./utilities/utilities');
 const bcrypt = require('bcrypt');
 const User = require('./models/user');
 const Post = require('./models/post');
 const Comment = require('./models/comment');
+
 
 mongoose.connect('mongodb://localhost:27017/blog-api', { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
@@ -25,6 +27,83 @@ mongoose.connect('mongodb://localhost:27017/blog-api', { useNewUrlParser: true, 
 //     });
 //     newuser1.save(); 
 // });
+
+// Add User
+// const myPlaintextPassword = 'password';
+// bcrypt.hash(myPlaintextPassword, 10).then(function(hash) {
+//     const newuser1 = new User({
+//         username: 'user',
+//         password: hash,
+//         admin: false 
+//     });
+//     newuser1.save(); 
+//     console.log('New entry added.');
+// });
+
+
+// Seed posts
+// const newpost = new Post({
+//     author: '61706b8f5f4e417b791886c3',
+//     title: 'Bcrypt',
+//     body: 'As should be the case with any security tool, this library should be scrutinized by anyone using it. If you find or suspect an issue with the code, please bring it to my attention and I will spend some time trying to make sure that this tool is as secure as possible. To make it easier for people using this tool to analyze what has been surveyed, here is a list of BCrypt related security issues/concerns as they have come up.',
+//     description: 'The Bcrypt Library',
+//     image: 'https://avatars2.githubusercontent.com/u/1019381?s=400&v=4',
+//     featured: true,
+//     comments: null,
+//     timestamp: utilities.formatDate(new Date())
+// });
+  
+// newpost.save();
+
+// const newpost = new Post({
+//     author: '617036f06117ea9ac73e36a6',
+//     title: 'Passport',
+//     body: 'Passport is authentication middleware for Node.js. Extremely flexible and modular, Passport can be unobtrusively dropped in to any Express-based web application. A comprehensive set of strategies support authentication using a username and password, Facebook, Twitter, and more.',
+//     description: 'The Passport Library',
+//     image: 'https://miro.medium.com/max/400/1*YI1tt4kGzvea-v4dAhZ90w.png',
+//     featured: false,
+//     comments: null,
+//     timestamp: utilities.formatDate(new Date())
+// });
+  
+// newpost.save();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

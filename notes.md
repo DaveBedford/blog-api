@@ -46,6 +46,9 @@ Create a second website for authoring and editing your posts. You can set this u
 - The ability to manage comments (i.e. delete or edit them).
 
 # NOTES
+
+## Schemas
+
 ```
 
 const UserSchema = new mongoose.Schema({
