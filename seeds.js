@@ -2,7 +2,7 @@
 
 const mongoose = require('mongoose');
 const utilities =  require('./utilities/utilities');
-const bcrypt = require('bcrypt');
+//const bcrypt = require('bcrypt');
 const User = require('./models/user');
 const Post = require('./models/post');
 const Comment = require('./models/comment');
@@ -69,10 +69,50 @@ mongoose.connect('mongodb://localhost:27017/blog-api', { useNewUrlParser: true, 
 // newpost.save();
 
 
+// Seed comments
+/*
+admin id: 617036f06117ea9ac73e36a6
+user id: 61706b8f5f4e417b791886c3
 
+post 1 id: 61706fd3b003f2231942b39d
+post 2 id: 6170709513e5302b5b6bc97a
+*/
 
+// const newcomment = new Comment({
+//     author: '617036f06117ea9ac73e36a6',
+//     post: '61706fd3b003f2231942b39d',
+//     text: 'This is really great stuff man.',
+//     timestamp: utilities.formatDate(new Date())
+// });
 
+// newcomment.save();
 
+// const newcomment = new Comment({
+//     author: '61706b8f5f4e417b791886c3',
+//     post: '61706fd3b003f2231942b39d',
+//     text: 'Lol cool story bro.',
+//     timestamp: utilities.formatDate(new Date())
+// });
+
+// newcomment.save();
+
+// const newcomment = new Comment({
+//     author: '61706b8f5f4e417b791886c3',
+//     post: '6170709513e5302b5b6bc97a',
+//     text: 'The best thing I have never read!',
+//     timestamp: utilities.formatDate(new Date())
+// });
+
+// newcomment.save();
+
+// const newcomment = new Comment({
+//     author: '617036f06117ea9ac73e36a6',
+//     post: '6170709513e5302b5b6bc97a',
+//     text: 'What a great time to be alive!',
+//     timestamp: utilities.formatDate(new Date())
+// });
+
+// newcomment.save();
 
 
 

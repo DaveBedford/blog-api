@@ -17,13 +17,11 @@ mongoose
 		console.log(err);
 	});
 
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 // Routes
 app.use('/api', blogRoutes);
-
-
 
 
 

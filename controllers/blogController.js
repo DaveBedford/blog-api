@@ -1,7 +1,7 @@
 const User = require('../models/user');
 const Post = require('../models/post');
 const Comment = require('../models/comment');
-
+const utilities =  require('../utilities/utilities');
 
 /*
 |----------------------------------------------------------------------
@@ -34,7 +34,32 @@ const getPostById = async (req, res) => {
 	}
 };
 
+/*
+|----------------------------------------------------------------------
+| Make blog post
+|----------------------------------------------------------------------
+*/
+const post = async (req, res) => {
+	
+	console.log(req.body.title)
 
+	const post = new Post({
+		author: '617036f06117ea9ac73e36a6',
+		title: req.body.title,
+		body: req.body.body,
+		description: req.body.description,
+		image: req.body.image,
+		featured: req.body.featured,
+		timestamp: utilities.formatDate(new Date())
+	});
+	
+	try {
+		const newPost = await post.save();
+		res.status(201).json(newPost);
+	} catch (err) {
+		res.status(400).json({ message: err.message });
+	}
+};
 
 
 
@@ -45,4 +70,5 @@ const getPostById = async (req, res) => {
 module.exports = {
 	posts,
 	getPostById,
+	post
 };
