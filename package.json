@@ -1,20 +1,27 @@
 {
-  "name": "current-project",
+  "name": "blog-api",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "nodemon app.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DaveBedford/blog-api.git"
+  },
+  "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "body-parser": "^1.19.0",
-    "express": "^4.16.4",
-    "mongoose": "^5.5.7"
+  "bugs": {
+    "url": "https://github.com/DaveBedford/blog-api/issues"
   },
-  "devDependencies": {
-    "dotenv": "^8.0.0",
-    "nodemon": "^1.19.0"
+  "homepage": "https://github.com/DaveBedford/blog-api#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "method-override": "^3.0.0",
+    "mongoose": "^6.0.11"
   }
 }
