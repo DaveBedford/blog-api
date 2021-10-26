@@ -39,29 +39,36 @@ const getPostById = async (req, res) => {
 | Make blog post
 |----------------------------------------------------------------------
 */
-// const post = async (req, res) => {
-	
-// 	console.log(req.body.title)
-
-// 	const post = new Post({
-// 		author: '617036f06117ea9ac73e36a6',
-// 		title: req.body.title,
-// 		body: req.body.body,
-// 		description: req.body.description,
-// 		image: req.body.image,
-// 		featured: req.body.featured,
-// 		timestamp: utilities.formatDate(new Date())
-// 	});
-	
-// 	try {
-// 		const newPost = await post.save();
-// 		res.status(201).json(newPost);
-// 	} catch (err) {
-// 		res.status(400).json({ message: err.message });
-// 	}
-// };
-
 const post = (req, res) => {
+	
+	console.log(req.body.title)
+
+	const post = new Post({
+		author: '617036f06117ea9ac73e36a6',
+		title: req.body.title,
+		body: req.body.body,
+		description: req.body.description,
+		image: req.body.image,
+		featured: req.body.featured,
+		timestamp: utilities.formatDate(new Date())
+	});
+	
+	
+		post.save()
+		.then((result) => {
+		res.status(201).json(post)
+		})
+		.catch ((err) => {
+		res.status(400).json({ message: err.message });
+		});
+};
+
+/*
+|----------------------------------------------------------------------
+| Update blog post
+|----------------------------------------------------------------------
+*/
+const update = (req, res) => {
 	
 	console.log(req.body.title)
 
@@ -94,5 +101,6 @@ const post = (req, res) => {
 module.exports = {
 	posts,
 	getPostById,
-	post
+	post,
+	update
 };
