@@ -2,13 +2,13 @@
 
 const mongoose = require('mongoose');
 const utilities =  require('./utilities/utilities');
-//const bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt');
 const User = require('./models/user');
 const Post = require('./models/post');
 const Comment = require('./models/comment');
 
 
-mongoose.connect('mongodb://localhost:27017/blog-api', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb+srv://dave:1dYJWzkB6yX8ibs6@cluster0.ekyon.mongodb.net/blog-api?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
         console.log("Mongo connection open.")
     })
@@ -17,7 +17,7 @@ mongoose.connect('mongodb://localhost:27017/blog-api', { useNewUrlParser: true, 
         console.log(err)
     })
 
-// Add Admin User
+//Add Admin User
 // const myPlaintextPassword = 'password';
 // bcrypt.hash(myPlaintextPassword, 10).then(function(hash) {
 //     const newuser1 = new User({
