@@ -70,7 +70,7 @@ const post = (req, res) => {
 */
 const update = (req, res) => {
 	
-	console.log(req.body.title)
+	postId = req.body.postId;
 
 	const post = new Post({
 		author: '617036f06117ea9ac73e36a6',
