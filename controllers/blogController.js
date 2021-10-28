@@ -1,7 +1,7 @@
 const User = require('../models/user');
 const Post = require('../models/post');
 const Comment = require('../models/comment');
-const utilities =  require('../utilities/utilities');
+const utilities = require('../utilities/utilities');
 
 /*
 |----------------------------------------------------------------------
@@ -40,9 +40,6 @@ const getPostById = async (req, res) => {
 |----------------------------------------------------------------------
 */
 const post = (req, res) => {
-	
-	console.log(req.body.title)
-
 	const post = new Post({
 		author: '617036f06117ea9ac73e36a6',
 		title: req.body.title,
@@ -50,16 +47,15 @@ const post = (req, res) => {
 		description: req.body.description,
 		image: req.body.image,
 		featured: req.body.featured,
-		timestamp: utilities.formatDate(new Date())
+		timestamp: utilities.formatDate(new Date()),
 	});
-	
-	
-		post.save()
+
+	post.save()
 		.then((result) => {
-		res.status(201).json(post)
+			res.status(201).json(post);
 		})
-		.catch ((err) => {
-		res.status(400).json({ message: err.message });
+		.catch((err) => {
+			res.status(400).json({ message: err.message });
 		});
 };
 
@@ -68,39 +64,73 @@ const post = (req, res) => {
 | Update blog post
 |----------------------------------------------------------------------
 */
-const update = (req, res) => {
-	
-	postId = req.body.postId;
+const updatePost = async (req, res) => {
+	// const post = await Post.findById(req.params.id);
+	// if (req.body.title != null) {
+	// 	post.title = req.body.title;
+	//   }
+	// if (req.body.body != null) {
+	// 	post.title = req.body.body;
+	//   }
+	// if (req.body.description != null) {
+	// 	post.title = req.body.description;
+	//   }
+	// if (req.body.image != null) {
+	// 	post.title = req.body.image;
+	//   }
+	// if (reqbody.featured != null) {
+	// 	post.title = req.body.featured;
+	//   }
 
-	const post = new Post({
-		author: '617036f06117ea9ac73e36a6',
-		title: req.body.title,
-		body: req.body.body,
-		description: req.body.description,
-		image: req.body.image,
-		featured: req.body.featured,
-		timestamp: utilities.formatDate(new Date())
-	});
-	
-	
-		post.save()
-		.then((result) => {
-		res.status(201).json(post)
-		})
-		.catch ((err) => {
+	//   try {
+	// 	const updatedPost = await res.post.save()
+	// 	res.json(updatedPost)
+	//   } catch (err) {
+	// 	res.status(400).json({ message: err.message })
+	//   }
+	// }
+
+// MY CODE
+
+
+	//console.log(req.params.id);
+	console.log(req.body.title);
+
+	const post = await Post.findById(req.params.id);
+	try {
+		post.title = req.body.title;
+		post.body = req.body.body;
+		post.description = req.body.description;
+		post.image = req.body.image;
+		post.featured = req.body.featured;
+
+		// post.save()
+		// .then((result) => {
+		// 	res.status(201).json(post);
+		// })
+		// .catch((err) => {
+		// 	res.status(400).json({ message: err.message });
+		// });
+	} catch(err) {
 		res.status(400).json({ message: err.message });
-		});
+	}
 };
 
+/*
+|----------------------------------------------------------------------
+| Delete blog post
+|----------------------------------------------------------------------
+*/
+const deletePost = (req, res) => {
+	//const post = post.find((post) => post._id === req.params.id);
 
-
-
-
-
+	
+};
 
 module.exports = {
 	posts,
 	getPostById,
 	post,
-	update
+	updatePost,
+	deletePost
 };
