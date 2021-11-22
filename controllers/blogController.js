@@ -64,53 +64,29 @@ const post = (req, res) => {
 | Update blog post
 |----------------------------------------------------------------------
 */
-const updatePost = async (req, res) => {
-	try {
-		// Get input
-		const { title, body, description, image, featured } = req.body;
+const updatePost = (req, res) => {
+	// try {
+	// 	// Get input
+	// 	const { title, body, description, image, featured } = req.body;
 
-		console.log(title)
+	// 	console.log(title)
 	
-		// Query for the specific blog post and update with inputs
-		const post = await Post.findByIdAndUpdate(req.params.id, { title, body, description, image, featured });
-		if (!post) return res.status(404).json({ error: "Error updating post." });
-		res.status(201).json({ message: "Successfully updated post." });
-	  } catch (err) {
-		console.log(err);
-		return next(err);
-	  }
-	}
-
-
-	// const post = await Post.findById(req.params.id);
-	// if (req.body.title != null) {
-	// 	post.title = req.body.title;
-	//   }
-	// if (req.body.body != null) {
-	// 	post.title = req.body.body;
-	//   }
-	// if (req.body.description != null) {
-	// 	post.title = req.body.description;
-	//   }
-	// if (req.body.image != null) {
-	// 	post.title = req.body.image;
-	//   }
-	// if (reqbody.featured != null) {
-	// 	post.title = req.body.featured;
-	//   }
-
-	//   try {
-	// 	const updatedPost = await res.post.save()
-	// 	res.json(updatedPost)
+	// 	// Query for the specific blog post and update with inputs
+	// 	const post = await Post.findByIdAndUpdate(req.params.id, { title, body, description, image, featured });
+	// 	if (!post) return res.status(404).json({ error: "Error updating post." });
+	// 	res.status(201).json({ message: "Successfully updated post." });
 	//   } catch (err) {
-	// 	res.status(400).json({ message: err.message })
+	// 	console.log(err);
+	// 	return next(err);
 	//   }
 	// }
+
+
 
 // MY CODE
 
 
-	//console.log(req.params.id);
+// 	console.log(req.params.id);
 // 	console.log(req.body.title);
 
 // 	const post = await Post.findById(req.params.id);
@@ -132,6 +108,26 @@ const updatePost = async (req, res) => {
 // 		res.status(400).json({ message: err.message });
 // 	}
 // };
+
+console.log(req.params.id);
+console.log(req.body.title);
+
+const post = Post.findById(req.params.id)
+.then(
+	post.title = req.body.title;
+	post.body = req.body.body;
+	post.description = req.body.description;
+	post.image = req.body.image;
+	post.featured = req.body.featured;
+	post.save()
+	)
+	
+.catch(err) {
+	res.status(400).json({ message: err.message });
+}
+};
+
+
 
 /*
 |----------------------------------------------------------------------

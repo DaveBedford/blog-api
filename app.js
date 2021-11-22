@@ -21,7 +21,7 @@ mongoose
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-// Routes
+// Routes:
 app.use('/api', blogRoutes);
 
 
